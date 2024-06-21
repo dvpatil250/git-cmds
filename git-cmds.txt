@@ -1,0 +1,83 @@
+#any folder in file-system initialize as reository
+git init
+
+#check tracked/untracked files
+git status
+
+#staged the file
+git add <file-name>
+
+#unstaged the file
+git rm --cashe <file-name>
+
+#tracked the file
+git commit -m "write-msg"
+
+#untracked the file
+git reset <commit-Id(1 commit id below which file you want to untrack)>
+#check commits/trackedId
+git log (show all info)
+git log --online (show commit id in short format,hide author and date)
+git log --oneline --pretty (show commit id in short format with author and date)
+
+#change author name and email
+git config --global user.name "write-name"
+git config --global user.email "write-email"
+
+#restore deleted file from version contrll system
+git restore <file-name>
+
+#create new branch and checkout into that branch
+git branch <branch-name>
+
+#switch branch 
+git checkout <branch-name> (git checkout -b <branch-name:create new branch and switch into that branch)
+
+#delete branch 
+git branch -D <branch-name>
+
+#see all branches
+git branch
+
+#get repository from gitHub to local
+git clone <github repository url>
+
+#get github changece to local for that perticular repository
+git pull origin <branch-name>
+
+#push local changes to github repository (with pass the token)
+git push origin main https://<token>@<git-repo-url>
+ # or 
+ git remote set-url --add origin https://<token>@<git-repo-url>
+git push origin <branch-name>
+
+#displays the URLs that correspond to the remote repositories for your Git project
+git remote -v
+
+#remove old url 
+git remote set-url --delete origin <old-git-url>
+
+#command is used to create a new commit that undoes the changes made by a previous commit
+git revert <commit-id>
+
+#command is used to undo changes by moving the current branch pointer to a specified commit
+git reset <mode> <commit-id> (one commit-id down)
+
+#changes from different branches into a single branch
+git merge <branch-name> (go to the branch where you want to merge another branches and then run cmd) 
+
+#combine multiple commits into a single commit (at the time of merge)
+git merge <branch-name> --squash
+
+#reapply commits on top of another base commit (all commit in linear way)
+git pull origin <branch-name> --rebase 
+
+#apply the changes introduced by an existing commit to the current branch. This is useful when you want to copy a specific commit from one branch to another without merging the entire branch.
+git cherry-pick <commit-id>
+
+#emporarily save changes you’ve made to your working directory and staging area without committing them
+git stash 
+
+#changes from the most recent stash and then remove that stash from the stash list
+git stash pop [<stash>]
+
